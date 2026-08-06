@@ -1,82 +1,186 @@
-# Nimbus — Premium SaaS Auth Flow (Frontend-Only Demo)
+<div align="center">
 
-A polished, animated Landing → Register → Login → Dashboard experience built as a
-**pure frontend** demo. There is no backend, no API, and no database — authentication
-is fully simulated in the browser using `localStorage` / `sessionStorage`.
+<img src="public/aurora-favicon.svg" width="56" height="56" alt="Nimbus logo" />
 
-## Stack
+# Nimbus
 
-- **React 19 + TypeScript + Vite**
-- **Tailwind CSS** with a custom "aurora" design token system (dark + light themes)
-- **shadcn/ui-style components**, hand-built on top of Radix UI primitives
-- **Framer Motion** for scroll/mouse-reactive backgrounds, tilt effects, and page transitions
-- **React Router** for client-side routing
-- **React Hook Form + Zod** for form state and validation
-- **Sonner** for toast notifications
-- **Recharts** for the dashboard analytics chart
-- **Lucide React** for icons
+### A premium, frontend-only SaaS authentication experience
 
-## Getting started
+Landing → Register → Login → Dashboard — fully animated, fully mocked, no backend required.
+
+<p>
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-3-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" />
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer_Motion-12-0055FF?style=flat-square&logo=framer&logoColor=white" />
+  <img alt="Backend" src="https://img.shields.io/badge/Backend-None_(mocked)-6B7280?style=flat-square" />
+  <a href="https://saas-auth-flow.netlify.app/"><img alt="Live demo" src="https://img.shields.io/badge/Live_Demo-saas--auth--flow.netlify.app-00C7B7?style=flat-square&logo=netlify&logoColor=white" /></a>
+</p>
+
+<p>
+  <a href="#live-demo"><b>Live Demo</b></a> ·
+  <a href="#screenshots"><b>Screenshots</b></a> ·
+  <a href="#quick-start"><b>Quick Start</b></a> ·
+  <a href="#features"><b>Features</b></a> ·
+  <a href="#tech-stack"><b>Tech Stack</b></a>
+</p>
+
+</div>
+
+<br />
+
+## Live demo
+
+### 🔗 **[saas-auth-flow.netlify.app](https://saas-auth-flow.netlify.app/)**
+
+Log straight in with the [demo credentials](#demo-credentials) below, or register a new
+account — everything is stored in your browser, nothing touches a server.
+
+<details>
+<summary>Deploy your own copy</summary>
+<br />
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/YOUR_REPO)
+
+</details>
+
+<br />
+
+## Screenshots
+
+<div align="center">
+
+| Landing | Register |
+|---|---|
+| ![Landing page](docs/screenshots/landing.png) | ![Register page](docs/screenshots/register.png) |
+
+| Login | Dashboard |
+|---|---|
+| ![Login page](docs/screenshots/login.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+
+</div>
+
+<br />
+
+## Overview
+
+Nimbus is a self-contained demo of a modern SaaS product's front door — the part every
+product needs but nobody wants to rebuild from scratch. It pairs a cinematic,
+scroll- and mouse-reactive background with a complete authentication flow and a
+working dashboard shell, all running entirely in the browser.
+
+There's no API, no database, and no server. Accounts and sessions live in
+`localStorage` / `sessionStorage`, so you can clone it, run it, and wire up a real
+backend whenever you're ready.
+
+<br />
+
+## Features
+
+**Landing**
+- Cinematic hero with a tilting glass "product preview" card
+- Scroll-reactive aurora background — gradient meshes, glass orbs, particles, a moving grid, and morphing blobs
+- Asymmetric bento feature grid, workflow steps, testimonials, and a closing CTA
+
+**Authentication**
+- Split-screen glass register / login cards
+- Real-time validation with React Hook Form + Zod
+- Password strength meter, visibility toggles, "remember me," and a success animation before redirect
+
+**Dashboard**
+- Collapsible sidebar and a command-style top bar with search, notifications, and profile menu
+- Stat cards, a live-feeling analytics chart, activity feed, quick actions, and a profile summary
+- Loading skeletons and dark / light theming
+
+<br />
+
+## Tech stack
+
+| Layer | Tool |
+|---|---|
+| Framework | React 19 + TypeScript + Vite |
+| Styling | Tailwind CSS with custom "aurora" design tokens |
+| Components | Hand-built shadcn/ui-style primitives on Radix UI |
+| Motion | Framer Motion |
+| Forms | React Hook Form + Zod |
+| Routing | React Router |
+| Charts | Recharts |
+| Notifications | Sonner |
+| Icons | Lucide |
+
+<br />
+
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the printed local URL (typically `http://localhost:5173`).
-
-To build for production:
+Open the printed local URL — usually `http://localhost:5173`.
 
 ```bash
-npm run build
-npm run preview
+npm run build     # production build
+npm run preview   # preview the production build locally
 ```
 
-## Try it out
+<br />
 
-There is a seeded demo account so you can log in immediately without registering:
+## Demo credentials
 
-- **Email:** `demo@nimbus.app`
-- **Password:** `Demo1234`
+No need to register — log straight in:
 
-Or register a brand new account on the `/register` page — it's saved to `localStorage`
-under the key `nimbus_mock_users` (never sent anywhere).
+| Field | Value |
+|---|---|
+| Email | `demo@nimbus.app` |
+| Password | `Demo1234` |
 
-## What's simulated (no backend involved)
+Or create a new account on `/register` — it's saved to `localStorage` and never leaves your browser.
 
-- **Registration / Login** — validated with Zod, persisted to `localStorage`, with
-  artificial network delay so loading states feel real.
-- **"Remember me"** — controls whether the session lives in `localStorage` (persists
-  across browser restarts) or `sessionStorage` (cleared when the tab closes).
-- **Forgot password** and **social login (Google / GitHub)** — UI only. Clicking them
-  shows a toast explaining that no real request is made.
-- **Dashboard data** — stats, chart, activity feed, notifications, and profile info are
-  all static mock data in `src/lib/mockData.ts`.
+<br />
+
+## What's mocked
+
+| Feature | Behavior |
+|---|---|
+| Register / Login | Validated locally, persisted to `localStorage`, with an artificial delay so loading states feel real |
+| Remember me | Toggles between `localStorage` (persists) and `sessionStorage` (clears on tab close) |
+| Forgot password / social login | UI only — clicking shows a toast explaining nothing is actually sent |
+| Dashboard data | Static mock data in `src/lib/mockData.ts` |
+
+<br />
 
 ## Project structure
 
 ```
 src/
-  components/
-    background/    the animated "Aurora Core" background system (mesh, aurora,
-                    orbs, particles, grid, morphing blobs)
-    ui/             hand-built shadcn-style primitives (Button, Card, Input, ...)
-    layout/         Navbar, Footer, Logo, page/scroll transition helpers
-    landing/        Hero, feature bento grid, workflow steps, testimonials, CTA
-    auth/           AuthShell (split-screen layout), password strength meter,
-                    social buttons, success animation, protected route
-    dashboard/      Sidebar, TopNav, stat cards, chart, activity, quick actions
-  context/          AuthContext (mock auth), ThemeContext (dark/light)
-  hooks/            mouse position, scroll progress, reduced motion, card tilt
-  lib/              Zod schemas, mock data, cn() helper
-  pages/            Landing, Register, Login, Dashboard, NotFound
+├─ components/
+│  ├─ background/   Aurora Core — the animated mesh / aurora / orb / particle system
+│  ├─ ui/            shadcn-style primitives (Button, Card, Input, ...)
+│  ├─ layout/         Navbar, Footer, Logo, page transitions
+│  ├─ landing/        Hero, feature grid, workflow steps, testimonials, CTA
+│  ├─ auth/           Auth shell, password strength, social buttons, protected route
+│  └─ dashboard/      Sidebar, top nav, stats, chart, activity, quick actions
+├─ context/           AuthContext (mock auth), ThemeContext (dark / light)
+├─ hooks/             Mouse position, scroll progress, reduced motion, card tilt
+├─ lib/               Zod schemas, mock data, utilities
+└─ pages/             Landing, Register, Login, Dashboard, NotFound
 ```
 
-## Notes on accessibility & performance
+<br />
 
-- Respects `prefers-reduced-motion`: the animated background falls back to a static
-  gradient and Framer Motion transforms are skipped.
-- Routes are lazy-loaded (`React.lazy` + `Suspense`) to keep the initial bundle small.
-- All interactive elements are keyboard-focusable with visible focus rings.
-- Dark mode is the default; toggle it from the dashboard top bar (persisted to
-  `localStorage`).
+## Accessibility & performance
+
+- Respects `prefers-reduced-motion` — the animated background falls back to a static gradient
+- Routes are code-split with `React.lazy` + `Suspense`
+- Full keyboard navigation with visible focus states
+- Dark mode by default, persisted across visits
+
+<br />
+
+<div align="center">
+
+Built as a design & engineering showcase — not affiliated with any real product or company.
+
+</div>
